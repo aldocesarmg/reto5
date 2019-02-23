@@ -6,7 +6,11 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        peticionDeDatos();
+        int valor = 512;
+        //peticionDeDatos();
+        
+        decimalBinario(valor);
+        
         //long base2[] = new long[];
     }
     
@@ -23,5 +27,16 @@ public class RETO5 {
         
         System.out.println("¿Qué opción desea realizar?");
         valor = sc.next();
+    }
+    
+    public static void decimalBinario(int numero){
+        int n = 0;
+        double resultado = 0;
+        while(resultado<numero){
+            resultado = Math.pow(2,n);
+            n++;
+            System.out.println(resultado);
+        }
+        //System.out.println(resultado);
     }
 }
