@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        int valor = 512;
+        int valor = 500;
         //peticionDeDatos();
         
         decimalBinario(valor);
@@ -31,12 +31,26 @@ public class RETO5 {
     
     public static void decimalBinario(int numero){
         int n = 0;
-        double resultado = 0;
+        double resultado = 0; 
         while(resultado<numero){
-            resultado = Math.pow(2,n);
             n++;
-            System.out.println(resultado);
+            resultado = Math.pow(2,n);
         }
-        //System.out.println(resultado);
+        
+        //System.out.println(n);
+        
+        System.out.print("Su valor binario es: ");
+        
+        while(n>0){
+            n--;
+            resultado = Math.pow(2,n);
+            if(resultado<=numero){
+                System.out.print("1");
+                numero -= resultado;
+            }else{
+                System.out.print("0");
+            }
+        }
+                
     }
 }
