@@ -6,12 +6,14 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        int valor = 346;
+        int valor = 0;
         //peticionDeDatos();
         
         //decimalBinario(valor);
         //decimalOctal(valor);
         //decimalHexadecimal(valor);
+        //verificarBinario(String.valueOf(valor));
+        binarioDecimal(String.valueOf(valor));
     }
     
     public static void peticionDeDatos(){
@@ -91,5 +93,34 @@ public class RETO5 {
         }else if(numero==0){
             System.out.println("0");
         }
+    }
+    
+    public static void verificarBinario(String numero){
+        String temp;
+        for(int i = 0; numero.length()>i; i++){
+            temp = String.valueOf(numero.charAt(i));
+            if(temp.equals("0")||temp.equals("1")){
+            }else{
+                System.out.println("Solamente puede escribir unos o ceros");
+                break;
+            }
+        }
+    }
+    
+    public static void binarioDecimal(String numero){
+        String temp;
+        double elevado = 0, resultado = 0, n = 0;
+        for(int i = numero.length(); i>0; i--){
+            temp = String.valueOf(numero.charAt(i-1));
+            switch (temp) {
+                case "1":
+                    elevado = Math.pow(2, n);
+                    resultado += elevado;
+                    break;
+            }
+            n += 1;
+            
+        }
+        System.out.println(resultado);
     }
 }
