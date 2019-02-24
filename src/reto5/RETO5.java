@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        int valor = 234;
+        String valor = "ASDI3";
         //peticionDeDatos();
         
         //decimalBinario(valor);
@@ -14,7 +14,8 @@ public class RETO5 {
         //decimalHexadecimal(valor);
         //verificarBinario(String.valueOf(valor));
         //binarioDecimal(String.valueOf(valor));
-        octalDecimal(String.valueOf(valor));
+        //octalDecimal(String.valueOf(valor));
+        hexadecimalDecimal(valor);
     }
     
     public static void peticionDeDatos(){
@@ -141,5 +142,27 @@ public class RETO5 {
                 n--;
             }
         System.out.println(resultado);
+    }
+    
+    public static void hexadecimalDecimal(String numero){
+        String numeroDec[] = new String[50];
+        String valorHex[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
+        String temp;
+        int resultado = 0;
+        double n = numero.length()-1;
+        for(int i = 0; numero.length()>i; i++){ //DEFINE CUANTAS VECES SE REPETIRÁ EL FOR
+            temp = String.valueOf(numero.charAt(i));
+            for(int r = 0; valorHex.length > r; r++){ //RECORRE EL ARREGLO valorHex[] EN BUSCA DEL NUMERO EQUIVALENTE
+                if(temp.equals(valorHex[r])){
+                    numeroDec[i] = String.valueOf(r);
+                }else{
+                    System.out.println("Número no válido. Lo sentimos."); //SI SE INTRODUCE UN NÚMERO DISTINTO A HEXADECIMAL, SE SALE
+                    return;
+                }
+            }
+            resultado += Integer.parseInt(numeroDec[i])*(Math.pow(16, n)); //MULTIPLICA EL NÚMERO CONVERTIDO POR 16 A LA n Y LO SUMA A RESULTADO
+            System.out.println(resultado);
+            n--;
+        }
     }
 }
