@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        int valor = 987;
+        int valor = 346;
         //peticionDeDatos();
         
         //decimalBinario(valor);
         //decimalOctal(valor);
-        decimalHexadecimal(valor);
+        //decimalHexadecimal(valor);
     }
     
     public static void peticionDeDatos(){
@@ -81,7 +81,15 @@ public class RETO5 {
             numero /= 16;
             sobrante[i] = valoresHex[Integer.parseInt(sobrante[i])-1];
         }
-        
-        
+        for (int r = 99; r>=0;r--){
+            if(sobrante[r] != null){
+                System.out.print(sobrante[r]);
+            }
+        }
+        if(numero<0){
+            System.out.println("Número no válido.");
+        }else if(numero==0){
+            System.out.println("0");
+        }
     }
 }
