@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        int valor = 0;
+        int valor = 987;
         //peticionDeDatos();
         
-        decimalBinario(valor);
+        //decimalBinario(valor);
         //decimalOctal(valor);
-        
+        decimalHexadecimal(valor);
     }
     
     public static void peticionDeDatos(){
@@ -36,14 +36,12 @@ public class RETO5 {
             System.out.println("Este programa solo calcula valores positivos. Lo sentimos.");
         }else if(numero==0){
             System.out.println("0");
-        }
+        }else{
         while(resultado<numero){
             n++;
             resultado = Math.pow(2,n);
         }
-        
         System.out.print("Su valor binario es: ");
-        
         while(n>0){
             n--;
             resultado = Math.pow(2,n);
@@ -54,12 +52,11 @@ public class RETO5 {
                 System.out.print("0");
             }
         }
-                
+        }
     }
     
     public static void decimalOctal(int numero){
         int sobrante[] = new int[100];
-        
         for (int i = 0; numero>0;i++){
             sobrante[i] = (numero % 8);
             numero /= 8;
@@ -74,5 +71,17 @@ public class RETO5 {
         }else if(numero==0){
             System.out.println("0");
         }
+    }
+    
+    public static void decimalHexadecimal(int numero){
+        String sobrante[] = new String[100];
+        String valoresHex[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
+        for (int i = 0; numero>0;i++){
+            sobrante[i] = Integer.toString(numero % 16);
+            numero /= 16;
+            sobrante[i] = valoresHex[Integer.parseInt(sobrante[i])-1];
+        }
+        
+        
     }
 }
