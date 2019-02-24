@@ -99,20 +99,16 @@ public class RETO5 {
         }
     }
     
-    public static void verificarBinario(String numero){
+    public static void binarioDecimal(String numero){
         String temp;
         for(int i = 0; numero.length()>i; i++){
             temp = String.valueOf(numero.charAt(i));
             if(temp.equals("0")||temp.equals("1")){
             }else{
                 System.out.println("Solamente puede escribir unos o ceros");
-                break;
+                return;
             }
         }
-    }
-    
-    public static void binarioDecimal(String numero){
-        String temp;
         double elevado = 0, resultado = 0, n = 0;
         for(int i = numero.length(); i>0; i--){
             temp = String.valueOf(numero.charAt(i-1));
@@ -123,7 +119,6 @@ public class RETO5 {
                     break;
             }
             n += 1;
-            
         }
         System.out.println(resultado);
     }
