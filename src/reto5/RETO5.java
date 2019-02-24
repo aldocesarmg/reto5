@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        int valor = 500;
+        int valor = 0;
         //peticionDeDatos();
         
-        decimalBinario(valor);
+        //decimalBinario(valor);
+        decimalOctal(valor);
         
-        //long base2[] = new long[];
     }
     
     public static void peticionDeDatos(){
@@ -52,5 +52,24 @@ public class RETO5 {
             }
         }
                 
+    }
+    
+    public static void decimalOctal(int numero){
+        int sobrante[] = new int[100];
+        
+        for (int i = 0; numero>0;i++){
+            sobrante[i] = (numero % 8);
+            numero /= 8;
+        }
+        for (int r = 99; r>=0;r--){
+            if(sobrante[r]!=0){
+                System.out.print(sobrante[r]);
+            }
+        }
+        if(numero<0){
+            System.out.println("Número no válido.");
+        }else if(numero==0){
+            System.out.println("0");
+        }
     }
 }
