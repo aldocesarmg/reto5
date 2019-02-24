@@ -9,8 +9,8 @@ public class RETO5 {
         int valor = 0;
         //peticionDeDatos();
         
-        //decimalBinario(valor);
-        decimalOctal(valor);
+        decimalBinario(valor);
+        //decimalOctal(valor);
         
     }
     
@@ -32,12 +32,15 @@ public class RETO5 {
     public static void decimalBinario(int numero){
         int n = 0;
         double resultado = 0; 
+        if(numero<0){
+            System.out.println("Este programa solo calcula valores positivos. Lo sentimos.");
+        }else if(numero==0){
+            System.out.println("0");
+        }
         while(resultado<numero){
             n++;
             resultado = Math.pow(2,n);
         }
-        
-        //System.out.println(n);
         
         System.out.print("Su valor binario es: ");
         
