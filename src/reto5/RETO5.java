@@ -6,14 +6,15 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        int valor = 0;
+        int valor = 234;
         //peticionDeDatos();
         
         //decimalBinario(valor);
         //decimalOctal(valor);
         //decimalHexadecimal(valor);
         //verificarBinario(String.valueOf(valor));
-        binarioDecimal(String.valueOf(valor));
+        //binarioDecimal(String.valueOf(valor));
+        octalDecimal(String.valueOf(valor));
     }
     
     public static void peticionDeDatos(){
@@ -59,6 +60,13 @@ public class RETO5 {
     
     public static void decimalOctal(int numero){
         int sobrante[] = new int[100];
+        if(numero<0){
+            System.out.println("Número no válido.");
+            return;
+        }else if(numero==0){
+            System.out.println("0");
+            return;
+        }
         for (int i = 0; numero>0;i++){
             sobrante[i] = (numero % 8);
             numero /= 8;
@@ -67,11 +75,6 @@ public class RETO5 {
             if(sobrante[r]!=0){
                 System.out.print(sobrante[r]);
             }
-        }
-        if(numero<0){
-            System.out.println("Número no válido.");
-        }else if(numero==0){
-            System.out.println("0");
         }
     }
     
@@ -121,6 +124,22 @@ public class RETO5 {
             n += 1;
             
         }
+        System.out.println(resultado);
+    }
+    
+    public static void octalDecimal(String numero){
+        if (Integer.parseInt(numero)<0){
+            System.out.println("Número no válido");
+            return;
+        }
+        int resultado = 0;
+        String temp;
+        double n = numero.length()-1;
+        for(int i = 0; numero.length()>i; i++){
+                temp = String.valueOf(numero.charAt(i));
+                resultado += Integer.parseInt(temp)*Math.pow(8, n);
+                n--;
+            }
         System.out.println(resultado);
     }
 }
