@@ -178,7 +178,7 @@ public class RETO5 {
         double n = numero.length()-1;
         for(int i = 0; numero.length()>i; i++){ //DEFINE CUANTAS VECES SE REPETIRÁ EL FOR
             temp = String.valueOf(numero.charAt(i));
-            for(int r = 0; valorHex.length >= r; r++){ //RECORRE EL ARREGLO valorHex[] EN BUSCA DEL NUMERO EQUIVALENTE
+            for(int r = 0; valorHex.length > r; r++){ //RECORRE EL ARREGLO valorHex[] EN BUSCA DEL NUMERO EQUIVALENTE
                 if(temp.equals(valorHex[r])){
                     numeroDec[i] = String.valueOf(r);
                 }else{
