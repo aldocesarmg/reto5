@@ -6,21 +6,53 @@ import java.util.Scanner;
 public class RETO5 {
     
     public static void main(String[] args) {
-        String valor = "ASDI3";
-        //peticionDeDatos();
+        String respuesta, valor;
+        Scanner sc = new Scanner(System.in);
+        mostrarMenu();
         
-        //decimalBinario(valor);
-        //decimalOctal(valor);
-        //decimalHexadecimal(valor);
-        //verificarBinario(String.valueOf(valor));
-        //binarioDecimal(String.valueOf(valor));
-        //octalDecimal(String.valueOf(valor));
-        hexadecimalDecimal(valor);
+        do{
+            System.out.println("Tipo de conversión?");
+            respuesta = sc.next();
+            System.out.println("Número a convertir?");
+            valor = sc.next();
+            switch(respuesta){
+                case "A":
+                case "a":
+                    System.out.println("El número "+valor+ " en base binario es: ");
+                    decimalBinario(Integer.parseInt(valor));
+                    break;
+                case "B":
+                case "b":
+                    System.out.println("El número "+valor+ " en base cotal es: ");
+                    decimalOctal(Integer.parseInt(valor));
+                    break;
+                case "C":
+                case "c":
+                    System.out.println("El número "+valor+" en base hexadecimal es: ");
+                    decimalHexadecimal(Integer.parseInt(valor));
+                    break;
+                case "D":
+                case "d":
+                    System.out.println("El número binario "+valor+" en base decimal es: ");
+                    binarioDecimal(valor);
+                    break;
+                case "E":
+                case "e":
+                    System.out.println("El número octal "+valor+" en base decimal es: ");
+                    octalDecimal(valor);
+                    break;
+                case "F":
+                case "f":
+                    System.out.println("El número hexadecimal "+valor+" en base decimal es: ");
+                    hexadecimalDecimal(valor);
+                    break;
+            }
+            System.out.println("Otra conversión? S/N");
+            respuesta = sc.next();
+        }while(respuesta.equals("s")||respuesta.equals("S"));
     }
     
-    public static void peticionDeDatos(){
-        Scanner sc = new Scanner(System.in);
-        String valor;
+    public static void mostrarMenu(){
         System.out.println("** PROGRAMA DE CONVERSIONES **");
         System.out.println("Opción A: Convertir de decimal a binario");
         System.out.println("Opción B: Convertir de decimal a octal");
@@ -28,9 +60,6 @@ public class RETO5 {
         System.out.println("Opción D: Convertir de binario a decimal");
         System.out.println("Opción E: Convertir de octal a decimal");
         System.out.println("Opción F: Convertir de hexadecimal a decimal");
-        
-        System.out.println("¿Qué opción desea realizar?");
-        valor = sc.next();
     }
     
     public static void decimalBinario(int numero){
@@ -57,6 +86,7 @@ public class RETO5 {
             }
         }
         }
+        System.out.println("");
     }
     
     public static void decimalOctal(int numero){
@@ -77,6 +107,7 @@ public class RETO5 {
                 System.out.print(sobrante[r]);
             }
         }
+        System.out.println("");
     }
     
     public static void decimalHexadecimal(int numero){
@@ -147,7 +178,7 @@ public class RETO5 {
         double n = numero.length()-1;
         for(int i = 0; numero.length()>i; i++){ //DEFINE CUANTAS VECES SE REPETIRÁ EL FOR
             temp = String.valueOf(numero.charAt(i));
-            for(int r = 0; valorHex.length > r; r++){ //RECORRE EL ARREGLO valorHex[] EN BUSCA DEL NUMERO EQUIVALENTE
+            for(int r = 0; valorHex.length >= r; r++){ //RECORRE EL ARREGLO valorHex[] EN BUSCA DEL NUMERO EQUIVALENTE
                 if(temp.equals(valorHex[r])){
                     numeroDec[i] = String.valueOf(r);
                 }else{
